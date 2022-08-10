@@ -1,0 +1,362 @@
+import tkinter as tk
+import random
+
+# Sample lists of ingredients
+bun_list = ['white bread', 'tortilla']
+cheese_list = ['american', 'colby jack', 'no cheese']
+protein_list = ['bacon', 'spam']
+roughage_list = ['lettuce', 'tomato', 'red onion', 'white onion']
+wild_magic_list = ['salt and pepper', 'hot sauce', 'garlic powder']
+sauce_list = ['ketchup', 'mayonnaise', 'mustard', 'bbq sauce']
+
+button_text = 'Roll'
+all_button_text = 'Roll All'
+options_button_text = 'Options'
+open_button_text = 'Open'
+save_as_button_text = 'Save as'
+save_button_text = 'Save'
+save_all_button_text = 'Save'
+save_options_button_text = 'Save Options'
+back_button_text = 'Back'
+
+button_height = 1
+button_width = 10
+output_width = 20
+input_width = 50
+output_height = 1
+
+window = tk.Tk()
+window.geometry('560x285')  # Resolution
+window.title("Sandwich Game")
+
+window.tk.call('tk', 'scaling', 2)  # 2x scaling for readability
+
+# Label initialization
+bun_label = tk.Label(text='Bun:')
+cheese_label = tk.Label(text='Cheese:')
+protein_label = tk.Label(text='Protein:')
+roughage_label = tk.Label(text='Roughage:')
+wild_magic_label = tk.Label(text="Wild Magic:")
+sauce_label = tk.Label(text="Sauce:")
+
+# Output text-box initialization
+bun_output = tk.Entry(width=output_width, state='disabled')
+cheese_output = tk.Entry(width=output_width, state='disabled')
+protein_output = tk.Entry(width=output_width, state='disabled')
+roughage_output = tk.Entry(width=output_width, state='disabled')
+wild_magic_output = tk.Entry(width=output_width, state='disabled')
+sauce_output = tk.Entry(width=output_width, state='disabled')
+
+
+def bun_roll():
+    choice = random.randint(0, len(bun_list) - 1)
+    output = str(bun_list[choice])
+    print(output)
+    bun_output.configure(state='normal')
+    bun_output.delete(0, tk.END)
+    bun_output.insert(0, output)
+    bun_output.configure(state='disabled')
+
+
+def cheese_roll():
+    choice = random.randint(0, len(cheese_list) - 1)
+    output = str(cheese_list[choice])
+    print(output)
+    cheese_output.configure(state='normal')
+    cheese_output.delete(0, tk.END)
+    cheese_output.insert(0, output)
+    cheese_output.configure(state='disabled')
+
+
+def protein_roll():
+    choice = random.randint(0, len(protein_list) - 1)
+    output = str(protein_list[choice])
+    print(output)
+    protein_output.configure(state='normal')
+    protein_output.delete(0, tk.END)
+    protein_output.insert(0, output)
+    protein_output.configure(state='disabled')
+
+
+def roughage_roll():
+    choice = random.randint(0, len(roughage_list) - 1)
+    output = str(roughage_list[choice])
+    print(output)
+    roughage_output.configure(state='normal')
+    roughage_output.delete(0, tk.END)
+    roughage_output.insert(0, output)
+    roughage_output.configure(state='disabled')
+
+
+def wild_magic_roll():
+    choice = random.randint(0, len(wild_magic_list) - 1)
+    output = str(wild_magic_list[choice])
+    print(output)
+    wild_magic_output.configure(state='normal')
+    wild_magic_output.delete(0, tk.END)
+    wild_magic_output.insert(0, output)
+    wild_magic_output.configure(state='disabled')
+
+
+def sauce_roll():
+    choice = random.randint(0, len(sauce_list) - 1)
+    output = str(sauce_list[choice])
+    print(output)
+    sauce_output.configure(state='normal')
+    sauce_output.delete(0, tk.END)
+    sauce_output.insert(0, output)
+    sauce_output.configure(state='disabled')
+
+
+def roll_all():
+    bun_roll()
+    cheese_roll()
+    protein_roll()
+    roughage_roll()
+    wild_magic_roll()
+    sauce_roll()
+
+
+def open_main():
+    window.geometry('560x285')
+    window.title("Sandwich Game")
+
+    # Adding labels to grid
+    bun_list_label.grid_forget()
+    cheese_list_label.grid_forget()
+    protein_list_label.grid_forget()
+    roughage_list_label.grid_forget()
+    wild_magic_list_label.grid_forget()
+    sauce_list_label.grid_forget()
+
+    bun_list_input.grid_forget()
+    cheese_list_input.grid_forget()
+    protein_list_input.grid_forget()
+    roughage_list_input.grid_forget()
+    wild_magic_list_input.grid_forget()
+    sauce_list_input.grid_forget()
+
+    save_bun_button.grid_forget()
+    save_cheese_button.grid_forget()
+    save_protein_button.grid_forget()
+    save_roughage_button.grid_forget()
+    save_wild_magic_button.grid_forget()
+    save_sauce_button.grid_forget()
+
+    save_options_button.grid_forget()
+    back_button.grid_forget()
+
+    bun_label.grid(row=0, column=0)
+    cheese_label.grid(row=1, column=0)
+    protein_label.grid(row=2, column=0)
+    roughage_label.grid(row=3, column=0)
+    wild_magic_label.grid(row=4, column=0)
+    sauce_label.grid(row=5, column=0)
+
+    # Adding output text to grid
+    bun_output.grid(row=0, column=1)
+    cheese_output.grid(row=1, column=1)
+    protein_output.grid(row=2, column=1)
+    roughage_output.grid(row=3, column=1)
+    wild_magic_output.grid(row=4, column=1)
+    sauce_output.grid(row=5, column=1)
+
+    # Adding buttons to grid
+    bun_button.grid(row=0, column=2, padx=10)
+    cheese_button.grid(row=1, column=2, padx=10)
+    protein_button.grid(row=2, column=2, padx=10)
+    roughage_button.grid(row=3, column=2, padx=10)
+    wild_magic_button.grid(row=4, column=2, padx=10)
+    sauce_button.grid(row=5, column=2, padx=10)
+    options_button.grid(row=0, column=3, padx=0)
+    open_button.grid(row=1, column=3, padx=0)
+    save_button.grid(row=2, column=3, padx=0)
+    save_as_button.grid(row=3, column=3, padx=0)
+    all_button.grid(row=5, column=3, padx=0)
+
+
+def load_preferences():
+    bun_list_input.delete(0, tk.END)
+    cheese_list_input.delete(0, tk.END)
+    protein_list_input.delete(0, tk.END)
+    roughage_list_input.delete(0, tk.END)
+    wild_magic_list_input.delete(0, tk.END)
+    sauce_list_input.delete(0, tk.END)
+    bun_list_input.insert(0, ', '.join(bun_list))
+    cheese_list_input.insert(0, ', '.join(cheese_list))
+    protein_list_input.insert(0, ', '.join(protein_list))
+    roughage_list_input.insert(0, ', '.join(roughage_list))
+    wild_magic_list_input.insert(0, ', '.join(wild_magic_list))
+    sauce_list_input.insert(0, ', '.join(sauce_list))
+
+
+def open_options():
+    window.title("Options")
+    window.geometry("880x285")
+
+    load_preferences()
+
+    # Adding labels to options
+    bun_list_label.grid(row=0, column=0)
+    cheese_list_label.grid(row=1, column=0)
+    protein_list_label.grid(row=2, column=0)
+    roughage_list_label.grid(row=3, column=0)
+    wild_magic_list_label.grid(row=4, column=0)
+    sauce_list_label.grid(row=5, column=0)
+
+    # Adding input text to options
+    bun_list_input.grid(row=0, column=1)
+    cheese_list_input.grid(row=1, column=1)
+    protein_list_input.grid(row=2, column=1)
+    roughage_list_input.grid(row=3, column=1)
+    wild_magic_list_input.grid(row=4, column=1)
+    sauce_list_input.grid(row=5, column=1)
+
+    # Adding buttons to options
+    save_bun_button.grid(row=0, column=2, padx=10)
+    save_cheese_button.grid(row=1, column=2, padx=10)
+    save_protein_button.grid(row=2, column=2, padx=10)
+    save_roughage_button.grid(row=3, column=2, padx=10)
+    save_wild_magic_button.grid(row=4, column=2, padx=10)
+    save_sauce_button.grid(row=5, column=2, padx=10)
+    save_options_button.grid(row=3, column=3, padx=0)
+    back_button.grid(row=0, column=3, padx=0)
+    open_button.grid(row=1, column=3, padx=0)
+    save_button.grid(row=2, column=3, padx=0)
+    all_button.grid(row=5, column=3, padx=0)
+
+
+def open_file():
+    pass
+
+
+def save_as():
+    pass
+
+
+def save():
+    pass
+
+
+# Button initialization
+bun_button = tk.Button(text=button_text, height=button_height, width=button_width, command=bun_roll)
+cheese_button = tk.Button(text=button_text, height=button_height, width=button_width, command=cheese_roll)
+protein_button = tk.Button(text=button_text, height=button_height, width=button_width, command=protein_roll)
+roughage_button = tk.Button(text=button_text, height=button_height, width=button_width, command=roughage_roll)
+wild_magic_button = tk.Button(text=button_text, height=button_height, width=button_width, command=wild_magic_roll)
+sauce_button = tk.Button(text=button_text, height=button_height, width=button_width, command=sauce_roll)
+all_button = tk.Button(text=all_button_text, height=button_height, width=button_width, command=roll_all)
+options_button = tk.Button(text=options_button_text, height=button_height, width=button_width, command=open_options)
+open_button = tk.Button(text=open_button_text, height=button_height, width=button_width, command=open_file)
+save_as_button = tk.Button(text=save_as_button_text, height=button_height, width=button_width, command=save_as)
+save_button = tk.Button(text=save_button_text, height=button_height, width=button_width, command=save)
+
+# Adding labels to grid
+bun_label.grid(row=0, column=0)
+cheese_label.grid(row=1, column=0)
+protein_label.grid(row=2, column=0)
+roughage_label.grid(row=3, column=0)
+wild_magic_label.grid(row=4, column=0)
+sauce_label.grid(row=5, column=0)
+
+# Adding output text to grid
+bun_output.grid(row=0, column=1)
+cheese_output.grid(row=1, column=1)
+protein_output.grid(row=2, column=1)
+roughage_output.grid(row=3, column=1)
+wild_magic_output.grid(row=4, column=1)
+sauce_output.grid(row=5, column=1)
+
+# Adding buttons to grid
+bun_button.grid(row=0, column=2, padx=10)
+cheese_button.grid(row=1, column=2, padx=10)
+protein_button.grid(row=2, column=2, padx=10)
+roughage_button.grid(row=3, column=2, padx=10)
+wild_magic_button.grid(row=4, column=2, padx=10)
+sauce_button.grid(row=5, column=2, padx=10)
+options_button.grid(row=0, column=3, padx=0)
+open_button.grid(row=1, column=3, padx=0)
+save_button.grid(row=2, column=3, padx=0)
+save_as_button.grid(row=3, column=3, padx=0)
+all_button.grid(row=5, column=3, padx=0)
+
+# Options menu
+bun_list_label = tk.Label(text='Bun List:')
+cheese_list_label = tk.Label(text='Cheese List:')
+protein_list_label = tk.Label(text='Protein List:')
+roughage_list_label = tk.Label(text='Roughage List:')
+wild_magic_list_label = tk.Label(text="Wild Magic List:")
+sauce_list_label = tk.Label(text="Sauce List:")
+
+bun_list_input = tk.Entry(width=input_width)
+cheese_list_input = tk.Entry(width=input_width)
+protein_list_input = tk.Entry(width=input_width)
+roughage_list_input = tk.Entry(width=input_width)
+wild_magic_list_input = tk.Entry(width=input_width)
+sauce_list_input = tk.Entry(width=input_width)
+
+
+def save_bun():
+    global bun_list
+    bun_string = bun_list_input.get()
+    bun_list = bun_string.split(sep=', ')
+    print(bun_list)
+
+
+def save_cheese():
+    global cheese_list
+    cheese_string = cheese_list_input.get()
+    cheese_list = cheese_string.split(sep=', ')
+    print(cheese_list)
+
+
+def save_protein():
+    global protein_list
+    protein_string = protein_list_input.get()
+    protein_list = protein_string.split(sep=', ')
+    print(protein_list)
+
+
+def save_roughage():
+    global cheese_list
+    cheese_string = cheese_list_input.get()
+    cheese_list = cheese_string.split(sep=', ')
+    print(cheese_list)
+
+
+def save_wild_magic():
+    global cheese_list
+    cheese_string = cheese_list_input.get()
+    cheese_list = cheese_string.split(sep=', ')
+    print(cheese_list)
+
+
+def save_sauce():
+    global cheese_list
+    cheese_string = cheese_list_input.get()
+    cheese_list = cheese_string.split(sep=', ')
+    print(cheese_list)
+
+
+def save_options():
+    save_bun()
+    save_cheese()
+    save_protein()
+    save_roughage()
+    save_wild_magic()
+    save_sauce()
+
+
+save_bun_button = tk.Button(text=save_button_text, height=button_height, width=button_width, command=save_bun)
+save_cheese_button = tk.Button(text=save_button_text, height=button_height, width=button_width, command=save_cheese)
+save_protein_button = tk.Button(text=save_button_text, height=button_height, width=button_width, command=save_protein)
+save_roughage_button = tk.Button(text=save_button_text, height=button_height, width=button_width, command=save_roughage)
+save_wild_magic_button = tk.Button(text=save_button_text, height=button_height, width=button_width,
+                                   command=save_wild_magic)
+save_sauce_button = tk.Button(text=save_button_text, height=button_height, width=button_width, command=save_sauce)
+save_options_button = tk.Button(text=save_options_button_text, height=button_height, width=button_width,
+                                command=save_options)
+back_button = tk.Button(text=back_button_text, height=button_height, width=button_width, command=open_main)
+
+window.mainloop()
+options_window = tk.Tk()
